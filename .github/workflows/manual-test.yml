@@ -11,4 +11,5 @@ jobs:
           run: ./sync.ps1
           shell: pwsh
           env:
-            MyVariable: ${{ secrets.MY_VARIABLE }}
+            TONIEPWD: ${{ secrets.PASSWORD }}
+            TONIEUSR: ${{ secrets.USERNAME }}

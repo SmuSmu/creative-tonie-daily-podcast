@@ -25,7 +25,7 @@ $Token = $AuthResponse.access_token
 
 
 [xml]$rss = (Invoke-WebRequest -Uri $feedUrl).Content
-$latestItem = $rss.rss.channel.item | Select-Object -Last 1
+$latestItem = $rss.rss.channel.item | Select-Object -First 1
 
 
 # Hole die URL der Audiodatei

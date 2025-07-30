@@ -8,8 +8,7 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: Script
-          env:
-            username: ${{ secrets.USERNAME }}
-            password: ${{ secrets.PASSWORD }}
-          run: ./sync.ps1 "$Env:username" "$Env:password"
+          run: ./sync.ps1
           shell: pwsh
+          env:
+            MyVariable: ${{ secrets.MY_VARIABLE }}

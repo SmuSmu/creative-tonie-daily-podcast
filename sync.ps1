@@ -1,3 +1,6 @@
+$Env:MyVariable
+
+
 [String]$URL_AUTH = "https://login.tonies.com/auth/realms/tonies/protocol/openid-connect/token"
 [String]$USER = $Env:username
 [String]$PASS = $Env:password

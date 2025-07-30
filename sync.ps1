@@ -1,6 +1,6 @@
 [String]$URL_AUTH = "https://login.tonies.com/auth/realms/tonies/protocol/openid-connect/token"
-[String]$USER = $args[0]
-[String]$PASS = $args[1]
+[String]$USER = $Env:username
+[String]$PASS = $Env:password
 # URL des Podcast-Feeds
 $feedUrl = "https://kinder.wdr.de/radio/diemaus/audio/diemaus-60/diemaus-60-106.podcast"
 

@@ -36,7 +36,7 @@ $RSSFileName = $latestItem.title + '.mp3'
 $RSSFileName = ($RSSFileName -replace ' ', '_') -replace '[^a-zA-Z0-9_\-\.]', ''
 
 # Zielpfad für den Download
-$destination = Join-Path -Path $env:USERPROFILE -ChildPath "$RSSFileName"
+$destination = Join-Path -Path $env:TMP -ChildPath "$RSSFileName"
 
 
 Invoke-WebRequest $audioUrl -OutFile $destination

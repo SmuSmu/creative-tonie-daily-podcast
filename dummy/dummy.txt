@@ -1,1 +1,1 @@
-${GITHUB_RUN_ID}
+echo "${GITHUB_RUN_ID}"

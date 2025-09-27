@@ -17,7 +17,7 @@ jobs:
         with:
           path: dummy/dummy.txt
           write-mode: overwrite
-          contents: echo "${GITHUB_RUN_ID}"
+          contents: ${GITHUB_WORKFLOW}
             
       - name: Commit & Push
         uses: Andro999b/push@v1.3

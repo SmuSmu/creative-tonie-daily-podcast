@@ -1,9 +1,8 @@
 name: Keep Repo Fresh
 
 on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
+  schedule:
+    - cron: "3 3 3 * *"
 
 jobs:
   build:

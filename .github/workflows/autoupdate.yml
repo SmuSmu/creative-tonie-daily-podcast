@@ -12,12 +12,15 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      - name: Set env
+        run: echo "GITHUB_DUMMY_CONTENT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
+
       - name: Overwrite file
         uses: "DamianReeves/write-file-action@master"
         with:
           path: dummy/dummy.txt
           write-mode: overwrite
-          contents: ${GITHUB_WORKFLOW}
+          contents: $GITHUB_DUMMY_CONTENT
             
       - name: Commit & Push
         uses: Andro999b/push@v1.3

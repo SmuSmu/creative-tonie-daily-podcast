@@ -13,14 +13,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: filewrite
-        run: echo "test" >> dummy/test.text
-
-      - name: Overwrite file
-        uses: "DamianReeves/write-file-action@master"
-        with:
-          path: dummy/dummy.txt
-          write-mode: overwrite
-          contents: test
+        run: date > dummy/dummy.txt
             
       - name: Commit & Push
         uses: Andro999b/push@v1.3
@@ -28,4 +21,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
           force: true
-          message: 'Overwritten by Github Actions - ${date}'
+          message: 'Keep Repo fresh'

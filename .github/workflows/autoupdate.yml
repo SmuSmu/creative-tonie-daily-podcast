@@ -1,21 +1,29 @@
-name: Autoupdate
+name: Overwrite some file
+
 on:
-  schedule:
-    - cron: "0 0 25 * *"
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
 jobs:
-  main-job:
-    name: Main Job
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      # - step1
-      # - step 2
-      # - Step N
-  keepalive-job:
-    name: Keepalive Workflow
-    runs-on: ubuntu-latest
-    permissions:
-      actions: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: gautamkrishnar/keepalive-workflow@v2
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Overwrite file
+        uses: "DamianReeves/write-file-action@master"
+        with:
+          path: dummy/dummy.txt
+          write-mode: overwrite
+          contents: |
+            console.log('some contents')
+            
+      - name: Commit & Push
+        uses: Andro999b/push@v1.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          force: true
+          message: 'Overwritten by Github Actions - ${date}'
